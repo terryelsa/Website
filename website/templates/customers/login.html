@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block head%}
+<style>
+  body{
+    background-image: url("../static/img/Drink.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:100%;
+  }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="text-center h1">Login</div>
+<div class="container" style="height:800px; width:500px"> 
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="post" enctype="multipart/form-data">
+      <div>
+        {{ render_field(form.username,class="form-control" ) }}
+        {{ render_field(form.password,class="form-control") }}
+      </div>
+      <input type=submit value=Login class="btn btn-info mt-2">
+      <a href="{{url_for('home')}}" class="btn btn-warning mt-1" style="float:right"> Back </a>
+    </form>
+    Are you a new user?
+    <a href="{{url_for('customer_register')}}" class="btn btn-warning mt-1" style="float:center"> Register </a>
+</div>
+
+
+{% endblock %}

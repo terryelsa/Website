@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="text-center h1">Enter Customer's Details</div>
+<div class="container" style="height:800px; width:500px" > 
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="post" enctype="multipart/form-data">
+      <div>
+        {{ render_field(form.first_name,class="form-control" ) }}
+        {{ render_field(form.last_name,class="form-control" ) }}
+        {{ render_field(form.email,class="form-control" ) }}
+        {{ render_field(form.order,class="form-control" ) }}
+        {{ render_field(form.country,class="form-control" ) }}
+        {{ render_field(form.city,class="form-control" ) }}
+        {{ render_field(form.contact,class="form-control" ) }}
+        {{ render_field(form.address,class="form-control" ) }}
+        {{ render_field(form.zipcode,class="form-control") }}
+        
+      </div>
+     
+      <a href="{{url_for('callcenter')}}" class="btn btn-info mt-2">Submit </a>
+      <a href="{{url_for('callcenter')}}" class="btn btn-warning mt-1" style="float:right"> Back </a>
+    </form>
+
+</div>
+
+{% endblock %}

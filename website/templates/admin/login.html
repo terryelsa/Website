@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{% block head%}
+<style>
+  body{
+    background-image: url("../static/img/Sky.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:100%;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="text-center h1"><img src="https://img.icons8.com/ios-glyphs/30/000000/user-male.png"/><div>Login</div></div>
+<div class="container"style="height:800px; width:500px"> 
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="post" enctype="multipart/form-data">
+      <div>
+        {{ render_field(form.email,class="form-control" ) }}
+        <label for="department"><b>Department</b></label>
+        <select name="department" id="department" class="form-control" required>
+               <option hidden selected>Select department</option>
+               <option value="1">Stocking clerk</option>
+               <option value="2">Call center</option>
+               <option value="3">Customer service</option>
+       </select>
+        {{ render_field(form.password,class="form-control") }}
+       
+      </div>
+      <input type=submit value=Login class="btn btn-info mt-2">
+      <a href="{{url_for('home')}}" class="btn btn-warning mt-1" style="float:right"> Back </a>
+    </form>
+    Are you a new employee?
+    <a href="{{url_for('register')}}" class="btn btn-warning mt-1" style="float:center"> Register </a>
+</div>
+{% endblock %}

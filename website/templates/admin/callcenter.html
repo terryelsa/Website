@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head%}
+<style>
+  body{
+    background-image: url("../static/img/Call Service.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    height:100%;
+  }
+</style>
+{% endblock %}
+{% block body %}
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-white">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#" >
+    <img src="../static/img/logo.png" alt="logo"  style="width:30px;">
+  </a>
+  <span><b>DYNAMIC TECH SOLUTIONS</b></span>
+  <!-- Links -->
+  <ul class="navbar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link pr-5" href="{{url_for('customerdetails')}}">Check customer details</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pr-5" href="{{url_for('customer_order')}}">Create order</a>
+      </li>
+
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item"><a class="nav-link pr-5"href="{{url_for('logout2')}}"><span>Log out</span></a>
+    </li>
+  </ul>
+</nav>
+
+  
+
+{% endblock %}

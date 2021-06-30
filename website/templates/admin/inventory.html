@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-white">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#" >
+    <img src="../static/img/logo.png" alt="logo"  style="width:30px;">
+  </a>
+  <span><b>DYNAMIC TECH SOLUTIONS</b></span>
+  <!-- Links -->
+  
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item"><a class="nav-link pr-5"href="{{url_for('logout2')}}"><span>Log out</span></a>
+    </li>
+  </ul>
+</nav>
+<div class="container mt-3"></div>
+     <table class="table table-sm table-condensed">
+         <thead>
+           <th>No.</th>
+           <th>Product</th>
+           <th>Quantity</th>
+           <th>Price</th>
+           <th>Discount</th>
+           <th>Brand</th>
+           <th>Image</th>
+         </thead>
+         <tbody>
+           {% for product in products %}
+           <tr>
+             <td>{{loop.index}}</td>
+             <td>{{product.name}}</td>
+             <td>{{product.quantity}}</td>
+             <td>{{product.price}}</td>
+             <td>{{product.discount}}</td>
+             <td>{{product.brand.name}}</td>
+             <td><img src="{{url_for('static',filename='img/' + product.image_1)}}" width="40" height="40"></td>
+             
+           </tr>
+{% endfor %}         
+
+
+{% endblock %}

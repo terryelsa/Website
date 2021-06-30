@@ -1,0 +1,137 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<nav class="navbar navbar-expand-sm bg-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" >
+      <img src="../static/img/logo.png"  height="30"
+      alt=""
+      loading="lazy"
+      style="margin-top: -1px;">
+    </a>
+    <b>DYNAMIC TECH SOLUTIONS</b>
+    <!-- Links -->
+    <ul class="navbar-nav" style=text-align:center;>
+      <li class="nav-item">
+        <a class="nav-link pr-5" aria-current="page" href="/">All products</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link pr-5" href="/login">Staff</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pr-5" href="/customers/login">User</a>
+      </li>
+      <li class="nav-item ">
+      
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item"><a href="#"><span><img src="https://img.icons8.com/metro/26/000000/shopping-cart.png" /></span></a></li>
+      </li>
+    </ul>
+  </nav>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="width:60%; height:40%; margin: auto;">
+      <div class="carousel-item active">
+        <img src="../static/img/slider1.jpg" class="d-block w-100" alt="..." style="width:50px;">
+      </div>
+      <div class="carousel-item">
+        <img src="../static/img/slider2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../static/img/slider3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+<hr>
+<h1 style="text-align: center;"><b>OUR PRODUCTS</b></h1>
+<p style="text-align: center;">To enjoy your shopping experience by adding to cart or making a puchase you need to be logged in</p>
+<div class="container">
+    <div class="row">
+         {% for product in products %}
+        <div class="col-md-3 mt-4">
+            <div class="card">
+                <img src="{{url_for('static', filename='img/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="240" width="150" object-fit="contain">
+                <div class="card-body">
+                  <h5 class="text-center">{{product.name}}</h5>
+                  <p class="text-center">Price Ksh {{product.price}}</p>
+                </div>
+                <div class="card-footer text-center " style="width:70x; height:60px; background-color: rgba(245, 245, 245, 0.4)">
+                  <button type="button" class="btn btn-info btn-sm " data-bs-toggle="modal" data-bs-target="#exampleModal-{{product.id}}">
+                    Details
+                  </button>
+                </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal-{{product.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{product.name}} | Brand-{{product.brand.name}}| Category-{{product.category.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span style="color:black;">{{product.description}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+
+    </div>
+
+<hr>
+<hr>
+<div>
+  <h4>Testimonials</h4>
+  <p><i>Finally, I've been able to find the perfect and most suitable phone and laptop for not only my online classes and whatnot but also for my social media pages.I would highly recommend these latest and vibrant products.</i></p></div>
+  <div class="text-center"><i>~Aya - College student</i></div>
+  <br>
+  <p><i>Thanks to the computer I found at D.T.S I can now work for hours on end at the comfort of my home with no stress. No nagging, no prying just peace and quiet doing what I should and that's what I love about this company as it provides quality at affordable and unbeatable prices.</i></p>
+  <div class="text-center"><i>~Leo - Business owner</i></div>
+  <hr>
+  </div>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4"><h4>Contact Us</h4>
+        <img src="https://img.icons8.com/flat-round/30/000000/phone.png" /><b>+254712345678</b>
+        <br>
+        <img src="https://img.icons8.com/nolan/30/email.png"/><b>dynamictechsolutions@gmail.com</b>
+        </div>
+    <div class="col-md-4">
+    <h4>Connect with us</h4>
+    <img src="https://img.icons8.com/cute-clipart/30/000000/instagram-new.png"/><b>@dynamictechsolutions</b>
+    <br>
+    <img src="https://img.icons8.com/cute-clipart/30/000000/facebook-new.png"/><b>@dynamictechsolutions</b>
+    <br>
+    <img src="https://img.icons8.com/cute-clipart/30/000000/twitter.png"/><b>@dynamictechsolutions</b>
+    </div>
+    <div class="col-md-4">
+    <h4>Visit our physical store</h3>
+    <img src="https://img.icons8.com/ios-filled/40/000000/client-company.png" style="size: 30px 30px;"/>
+      <div><b>Old Mutual Building</b></div>
+      <div><b>Off Kaunda Street,</b></div>
+      <div><b>P.O BOX 3671-00100</b></div>
+      <b>Nairobi</b>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center;">
+<a class="navbar-brand" href="#">
+  <img src="../static/img/logo.png" alt="logo"  style="width:30px;">
+</a>
+<span><b>DYNAMIC TECH SOLUTIONS</b></span>
+</div>
+
+<footer style="text-align: center;">&copy; Copyright 2021 Dynamic Tech Solutions</footer>
+
+    
+{% endblock %}
